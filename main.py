@@ -1,8 +1,8 @@
 import logging
 from menu import show_menu, get_user_choice
 from mock_data import teams, matches
-from teams import add_team
-from validators import validate_team_id, validate_team_name
+from teams import add_team, show_all_teams
+
 
 
 def main():
@@ -27,10 +27,10 @@ def main():
                 add_team(teams,team_id,team_name)
                 print("team added")
             except ValueError as error:
-                    print(f"Error: {error}")
-                    logging.warning("Failed to add team: ", error)
+                print(f"Error: {str(error)}")
+                logging.warning("Failed to add team: %s", error)
         elif choice == 2:
-            print("Show all teams")
+            show_all_teams(teams)
         elif choice == 3:
             print("Add match result")
         elif choice == 4:
