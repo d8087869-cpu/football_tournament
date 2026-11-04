@@ -3,6 +3,7 @@ from menu import show_menu, get_user_choice
 from mock_data import teams, matches
 from teams import add_team, show_all_teams
 from matches import add_match 
+from standings import show_standings
 
 
 def main():
@@ -47,7 +48,7 @@ def main():
             
             
         elif choice == 4:
-            print("Show standings")
+            show_standings(teams)
         elif choice == 5:
             print("Show leading team")
         elif choice == 6:
@@ -62,6 +63,9 @@ def main():
             print("Check championship potential")
         else:
             print("Invalid choice. Please try again.")
+            
+print(teams)
+
 if __name__ == "__main__":
     main()
     

@@ -31,7 +31,7 @@ def show_all_teams(teams):
     print(f"{'ID'}  {'team name'}         {'played'}       {'points'}")
     for team in teams:
         print(
-            f"{team["id"]:<5}"
+            f"{team['id']:<5}"
             f"{team['name']:<20}"
             f"{team['played']:<10}"
             f"{team['points']:<10}")
