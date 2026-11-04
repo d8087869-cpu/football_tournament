@@ -2,7 +2,7 @@ import logging
 from menu import show_menu, get_user_choice
 from mock_data import teams, matches
 from teams import add_team, show_all_teams
-
+from matches import add_match 
 
 
 def main():
@@ -31,8 +31,21 @@ def main():
                 logging.warning("Failed to add team: %s", error)
         elif choice == 2:
             show_all_teams(teams)
+            
         elif choice == 3:
-            print("Add match result")
+            try:
+                home_team_id = int(input("enter home team id: "))
+                away_team_id = int(input("enter away team id: "))
+                
+                home_goals = int(input("enter home goals: "))
+                away_goals =int(input("enter away goals: "))
+                add_match(teams,matches,home_team_id,away_team_id,home_goals,away_goals)
+                print("match added successfully")
+            except ValueError as error:
+                print(f"error: {error}")
+                logging.warning("faild to add match: %s", error)
+            
+            
         elif choice == 4:
             print("Show standings")
         elif choice == 5:
