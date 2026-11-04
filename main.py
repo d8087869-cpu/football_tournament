@@ -1,5 +1,10 @@
 import logging
 from menu import show_menu, get_user_choice
+from mock_data import teams, matches
+from teams import add_team
+from validators import validate_team_id, validate_team_name
+
+
 def main():
     logging.basicConfig(
         level=logging.INFO,
@@ -16,7 +21,14 @@ def main():
             print("goodbye!")
             break
         elif choice == 1:
-            print("add team")
+            try:
+                team_id = int(input("enter team id: "))
+                team_name = input("enter team name: ")
+                add_team(teams,team_id,team_name)
+                print("team added")
+            except ValueError as error:
+                    print(f"Error: {error}")
+                    logging.warning("Failed to add team: ", error)
         elif choice == 2:
             print("Show all teams")
         elif choice == 3:
@@ -39,3 +51,5 @@ def main():
             print("Invalid choice. Please try again.")
 if __name__ == "__main__":
     main()
+    
+    
