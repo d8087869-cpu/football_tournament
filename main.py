@@ -3,7 +3,7 @@ from menu import show_menu, get_user_choice
 from mock_data import teams, matches
 from teams import add_team, show_all_teams
 from matches import add_match 
-from standings import show_standings
+from standings import show_standings, show_leading_team, show_best_attacking_team, show_team_success_rate,show_teams_without_wins,show_tournament_summary,check_championship_potential
 
 
 def main():
@@ -49,18 +49,25 @@ def main():
             
         elif choice == 4:
             show_standings(teams)
+            
         elif choice == 5:
-            print("Show leading team")
+            show_leading_team(teams)
+            
         elif choice == 6:
-            print("Show best attacking team")
+            show_best_attacking_team(teams)
+            
         elif choice == 7:
-            print("Show team success rate")
+            show_team_success_rate(teams)
+            
         elif choice == 8:
-            print("Show teams without wins")
+            show_teams_without_wins(teams)
+            
         elif choice == 9:
-            print("Show tournament summary")
+            show_tournament_summary(teams, matches)
+            
         elif choice == 10:
-            print("Check championship potential")
+            check_championship_potential(teams)
+            
         else:
             print("Invalid choice. Please try again.")
             
